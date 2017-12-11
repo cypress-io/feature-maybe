@@ -42,4 +42,14 @@ feature('mode')
 
 All callbacks are synchronous
 
+## Non-existing features
+
+For example, if we ask for non-existent feature "foo"
+
+```js
+feature('foo')
+  .map(doSomethingForFoo) // NOT called
+  .orElse(nopeNoFoo)      // called
+```
+
 For more info see [spec.js](spec.js)
