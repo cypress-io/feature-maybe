@@ -2,6 +2,7 @@
 const snapshot = require('snap-shot-it')
 const la = require('lazy-ass')
 const is = require('check-more-types')
+const sinon = require('sinon')
 
 describe('feature-maybe', () => {
   const featureMaybe = require('.')
@@ -35,5 +36,29 @@ describe('feature-maybe', () => {
 
   it('does not have feature foo', () => {
     snapshot(feature('foo'))
+  })
+
+  it('maps if existing feature', () => {
+    const spy = sinon.spy()
+    feature('wizard').map(spy)
+    la(spy.calledOnce)
+  })
+
+  it('passes value to existing feature', () => {
+    const spy = sinon.spy()
+    feature('mode')
+      .map(value => {
+        la(value === 'beast')
+      })
+      .map(spy)
+    la(spy.calledOnce)
+  })
+
+  it('calls .orElse for non-existing features', () => {
+    const onFeature = sinon.spy()
+    const onNoFeature = sinon.spy()
+    feature('foo').map(onFeature).orElse(onNoFeature)
+    la(!onFeature.called)
+    la(onNoFeature.calledOnce)
   })
 })
