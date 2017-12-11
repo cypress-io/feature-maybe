@@ -13,3 +13,9 @@ exports['feature-maybe returns mode 1'] = {
     "value": "beast"
   }
 }
+
+exports['feature-maybe does not have feature foo 1'] = {
+  "@@type": "folktale:Maybe",
+  "@@tag": "Nothing",
+  "@@value": {}
+}
