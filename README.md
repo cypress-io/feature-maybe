@@ -53,4 +53,17 @@ feature('foo')
   .orElse(nopeNoFoo)      // called
 ```
 
+## Turned off features
+
+```js
+const features = {
+  wizard: true,
+  mode: 'beast',
+  admin: false
+}
+const feature = featureMaybe(features)
+feature('admin')
+  .map(...) // NOT called
+```
+
 For more info see [spec.js](spec.js)
