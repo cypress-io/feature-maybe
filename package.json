@@ -1,0 +1,19 @@
+{
+  "name": "feature-maybe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha spec.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "folktale": "^2.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1",
+    "snap-shot-it": "^4.0.1"
+  }
+}
