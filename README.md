@@ -49,6 +49,7 @@ For example, if we ask for non-existent feature "foo"
 ```js
 feature('foo')
   .map(doSomethingForFoo) // NOT called
+  .map(doElseForFoo)      // NOT called
   .orElse(nopeNoFoo)      // called
 ```
 
