@@ -16,7 +16,8 @@ describe('feature-maybe', () => {
   beforeEach(() => {
     const features = {
       wizard: true,
-      mode: 'beast'
+      mode: 'beast',
+      admin: false
     }
 
     feature = featureMaybe(features)
@@ -60,5 +61,13 @@ describe('feature-maybe', () => {
     feature('foo').map(onFeature).orElse(onNoFeature)
     la(!onFeature.called)
     la(onNoFeature.calledOnce)
+  })
+
+  it('knows admin feature is off', () => {
+    const onFeature = sinon.spy()
+    const onNoFeature = sinon.spy()
+    feature('admin').map(onFeature).orElse(onNoFeature)
+    la(!onFeature.called, 'onFeature was called')
+    la(onNoFeature.calledOnce, 'onNoFeature was not called')
   })
 })
