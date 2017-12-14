@@ -1,14 +1,19 @@
 {
   "name": "feature-maybe",
   "version": "1.0.0",
-  "description": "",
+  "description": "Functional feature toggles on top of any object",
   "main": "index.js",
   "scripts": {
     "test": "mocha spec.js"
   },
+  "files": [
+    "index.js"
+  ],
+  "homepage": "https://github.com/cypress-io/feature-maybe#readme",
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "public": true,
+  "license": "MIT",
   "dependencies": {
     "check-more-types": "^2.24.0",
     "folktale": "^2.0.1",
